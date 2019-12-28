@@ -158,7 +158,7 @@ public fun <K: AnalysisType> loadExternalAnnotations(
                 key, annotations ->
                 val position = keyIndex.findPositionByAnnotationKeyString(key)
                 if (position != null) {
-                    val classNames = annotations.toMapBy { it.annotationClassFqn }
+                    val classNames = annotations.associateBy { it.annotationClassFqn }
                     for ((inferrerKey, inferrer) in inferrers) {
                         val externalAnnotations = externalAnnotationsMap[inferrerKey]!!
                         val annotation = inferrer.resolveAnnotation(classNames)

@@ -143,7 +143,7 @@ fun <Q: Qualifier> Qualifier.extract(qualifierSet: QualifierSet<Q>): Q? {
         return this as Q
     }
     if (this is MultiQualifier<*>) {
-        return this.qualifiers.getRaw(qualifierSet.id) as Q?
+        return this.qualifiers[qualifierSet.id] as Q?
     }
     throw IllegalArgumentException("Can't extract qualifier")
 }

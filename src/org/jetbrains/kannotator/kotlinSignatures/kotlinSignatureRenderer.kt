@@ -40,7 +40,7 @@ fun renderMethodSignature(
 ): String {
     val signature = parseGenericMethodSignature(method.genericSignature ?: method.id.methodDesc)
 
-    val typeParametersByName = signature.typeParameters.toMapBy { it.name }
+    val typeParametersByName = signature.typeParameters.associateBy { it.name }
 
     val isConstructor = method.isConstructor()
     fun substituteIfNeeded(genericType: GenericType): GenericType {
