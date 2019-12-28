@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/commandLineClient/commandLineClient.iml" filepath="$PROJECT_DIR$/commandLineClient/commandLineClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kannotator.test.iml" filepath="$PROJECT_DIR$/.idea/modules/kannotator.test.iml" />
     </modules>
   </component>
