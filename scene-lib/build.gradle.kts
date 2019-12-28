@@ -25,12 +25,3 @@ dependencies {
     implementation("org.plumelib:plume-util:1.0.10")
     implementation("org.jetbrains:annotations:18.0.0")
 }
-
-tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-}

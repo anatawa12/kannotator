@@ -37,12 +37,3 @@ dependencies {
     compile("org.ow2.asm:asm-debug-all:4.0")
     testImplementation("junit:junit:4.10")
 }
-
-tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-}

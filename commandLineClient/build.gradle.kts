@@ -25,12 +25,3 @@ dependencies {
     implementation("org.plumelib:options:1.0.3")
     compile(project(":"))
 }
-
-tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-}
