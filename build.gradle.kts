@@ -39,6 +39,7 @@ dependencies {
     implementation("com.goldmansachs:gs-collections:4.1.0")
     implementation("com.google.guava:guava:13.0.1")
     implementation("org.jetbrains:annotations:18.0.0")
+    implementation(project(":scene-lib"))
 }
 
 tasks {
