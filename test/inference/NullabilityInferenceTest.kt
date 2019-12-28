@@ -22,8 +22,8 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(in
 
     protected override fun Array<out kotlin.Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
-            if (ann.annotationType().simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
-            if (ann.annotationType().simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
+            if (ann.javaClass.simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
+            if (ann.javaClass.simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
         }
         return null
     }

@@ -8,7 +8,7 @@ import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.util.processJar
 import kotlin.test.fail
-import kotlin.util.measureTimeMillis
+import kotlin.system.measureTimeMillis
 import org.jetbrains.kannotator.asm.util.forEachMethod
 import util.findJarsInLibFolder
 import util.traceExecutionTime
