@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    add("implementation", files("$projectDir/../lib/plume.jar"))
+    implementation("org.plumelib:plume-util:1.0.10")
     implementation("org.jetbrains:annotations:18.0.0")
 }
 

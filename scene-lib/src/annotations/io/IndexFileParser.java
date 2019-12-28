@@ -11,8 +11,8 @@ import annotations.ext.TypeAnnotationPosition;
 import annotations.field.*;
 import annotations.util.coll.VivifyingMap;
 import annotations.io.Tree.Kind;
-import plume.ArraysMDE;
-import plume.FileIOException;
+import org.plumelib.util.ArraysPlume;
+import org.plumelib.util.FileIOException;
 import type.ArrayType;
 import type.BoundedType;
 import type.BoundedType.BoundKind;
@@ -1090,7 +1090,7 @@ public final class IndexFileParser {
         expectChar('.');
         for (String arg : legalChildSelectors) {
             if (matchKeyword(arg)) {
-                if (argumentChildSelectors != null && ArraysMDE.indexOf(argumentChildSelectors, arg) >= 0) {
+                if (argumentChildSelectors != null && ArraysPlume.indexOf(argumentChildSelectors, arg) >= 0) {
                     int index = expectNonNegative(matchNNInteger());
                     return new ASTPath.ASTEntry(kind, arg, index);
                 } else {

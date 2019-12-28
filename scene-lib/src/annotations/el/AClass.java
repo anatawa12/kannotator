@@ -5,6 +5,7 @@ import java.util.TreeMap;
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
 import org.jetbrains.annotations.NotNull;
+import org.plumelib.util.CollectionsPlume;
 
 /*>>>
 import checkers.nullness.quals.*;
@@ -160,22 +161,22 @@ public final class AClass extends AElement {
         }
         sb.append(linePrefix);
         sb.append("Bounds:\n");
-        plume.UtilMDE.mapToString(sb, bounds, linePrefix + "  ");
+        CollectionsPlume.mapToString(sb, bounds, linePrefix + "  ");
         sb.append(linePrefix);
         sb.append("Extends/implements:\n");
-        plume.UtilMDE.mapToString(sb, extendsImplements, linePrefix + "  ");
+        CollectionsPlume.mapToString(sb, extendsImplements, linePrefix + "  ");
         sb.append(linePrefix);
         sb.append("Fields:\n");
-        plume.UtilMDE.mapToString(sb, fields, linePrefix + "  ");
+        CollectionsPlume.mapToString(sb, fields, linePrefix + "  ");
         sb.append(linePrefix);
         sb.append("Field Initializers:\n");
-        plume.UtilMDE.mapToString(sb, fieldInits, linePrefix + "  ");
+        CollectionsPlume.mapToString(sb, fieldInits, linePrefix + "  ");
         sb.append(linePrefix);
         sb.append("Static Initializers:\n");
-        plume.UtilMDE.mapToString(sb, staticInits, linePrefix + "  ");
+        CollectionsPlume.mapToString(sb, staticInits, linePrefix + "  ");
         sb.append(linePrefix);
         sb.append("Methods:\n");
-        plume.UtilMDE.mapToString(sb, methods, linePrefix + "  ");
+        CollectionsPlume.mapToString(sb, methods, linePrefix + "  ");
         return sb.toString();
     }
 

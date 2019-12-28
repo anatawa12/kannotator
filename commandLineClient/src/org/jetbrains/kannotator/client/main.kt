@@ -1,6 +1,6 @@
 package org.jetbrains.kannotator.client
 
-import plume.Options
+import org.plumelib.options.Options
 import java.io.File
 import org.jetbrains.kannotator.annotations.io.InferenceParams
 import org.jetbrains.kannotator.annotations.io.executeAnnotationTask
@@ -14,7 +14,7 @@ fun argumentsAreInvalid(optionsValues: OptionsHelper, jars: Array<String>?): Boo
 fun main(args: Array<String>) {
     val optionsValues = OptionsHelper()
     val options = Options("kannotator -o <output path> <jar files...>", optionsValues)
-    val jars = options.parse_or_usage(args);
+    val jars = options.parse(true, args);
 
     if (argumentsAreInvalid(optionsValues, jars)){
         System.err.println(options.usage())
