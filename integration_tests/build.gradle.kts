@@ -34,7 +34,7 @@ configurations {
 dependencies {
     testImplementation(kotlin("stdlib-jdk8"))
     testCompile(project(":"))
-    compile("org.ow2.asm:asm-debug-all:5.2")
+    compile("org.ow2.asm:asm-debug-all:4.0")
     testImplementation("junit:junit:4.10")
 }
 

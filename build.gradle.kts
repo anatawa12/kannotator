@@ -33,7 +33,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    compile("org.ow2.asm:asm-debug-all:5.2")
+    compile("org.ow2.asm:asm-debug-all:4.0")
     implementation("junit:junit:4.10")
     testImplementation("net.sf.jung:jung-graph-impl:2.0.1")
     testImplementation("net.sf.jung:jung-algorithms:2.0.1")
