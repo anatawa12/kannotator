@@ -248,7 +248,7 @@ class Field(
     }
 }
 
-fun Field.getType(): Type = Type.getReturnType(desc)
+fun Field.getType(): Type = Type.getType(desc)
 
 fun ClassMember.getInternalPackageName(): String {
     val className = declaringClass.internal

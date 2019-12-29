@@ -5,6 +5,7 @@ import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.declarations.*
 import java.io.IOException
 import java.io.InputStream
+import java.net.URLClassLoader
 
 fun ClassesFromClassPath(vararg classNames: String): ClassSource = ClassesFromClassPath(classNames.toList())
 fun ClassesFromClassPath(classNames: Collection<ClassName>): ClassSource
@@ -43,10 +44,13 @@ fun getClassReader(className: String): ClassReader {
 }
 
 fun getClassAsStream(className: String): InputStream? {
-    val appClassLoader = ClassesFromClassPath::class.java.classLoader
+    val appClassLoader = getClassLoader()
     if (appClassLoader == null) {
         return null
     }
     val resourceName = className.replace("\\.".toRegex(), "/") + ".class"
     return appClassLoader.getResourceAsStream(resourceName)
 }
+
+fun getClassLoader() = cl
+private val cl = URLClassLoader(findJarsInLibFolder().map { it.toURI().toURL() }.toTypedArray())

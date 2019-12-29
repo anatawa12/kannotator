@@ -25,7 +25,7 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
     protected override val analysisType: AnalysisType = NULLABILITY_KEY
 
     protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
-        val utilClass = "out/test/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"
+        val utilClass = "build/classes/java/test/inferenceData/NullabilityFieldsInferenceTestClass.class"
         val classSource = FileBasedClassSource(arrayListOf(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationNames -> classNamesToNullabilityAnnotation(annotationNames)
@@ -34,7 +34,7 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
     }
 
     protected override fun getClassFiles(): Collection<File> {
-        return arrayListOf(File("out/test/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"))
+        return arrayListOf(File("build/classes/java/test//inferenceData/NullabilityFieldsInferenceTestClass.class"))
     }
 
     protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation, *> {
@@ -43,8 +43,8 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
 
     protected override fun Array<out Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
-            if (ann.javaClass.simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
-            if (ann.javaClass.simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
+            if (ann.annotationClass.java.simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
+            if (ann.annotationClass.java.simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
         }
         return null
     }

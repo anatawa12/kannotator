@@ -22,21 +22,21 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(in
 
     protected override fun Array<out kotlin.Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
-            if (ann.javaClass.simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
-            if (ann.javaClass.simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
+            if (ann.annotationClass.java.simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
+            if (ann.annotationClass.java.simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
         }
         return null
     }
 
     protected override fun getClassFiles(): Collection<File> {
         return listOf(
-                "out/test/kannotator/inferenceData/NullabilityInferenceTestLib.class",
-                "out/test/kannotator/inferenceData/NullabilityInferenceTestClass.class"
+                "build/classes/java/test/inferenceData/NullabilityInferenceTestLib.class",
+                "build/classes/java/test/inferenceData/NullabilityInferenceTestClass.class"
         ).map { File(it) }
     }
 
     protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
-        val utilClass = "out/test/kannotator/inferenceData/NullabilityInferenceTestLib.class"
+        val utilClass = "build/classes/java/test//inferenceData/NullabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(listOf(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationNames -> classNamesToNullabilityAnnotation(annotationNames)

@@ -18,8 +18,8 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
 
     protected override fun getClassFiles(): Collection<File> {
         return arrayListOf(
-                "out/test/kannotator/inferenceData/MutabilityInferenceTestLib.class",
-                "out/test/kannotator/inferenceData/MutabilityInferenceTestClass.class").map { File(it) }
+                "build/classes/java/test/inferenceData/MutabilityInferenceTestLib.class",
+                "build/classes/java/test/inferenceData/MutabilityInferenceTestClass.class").map { File(it) }
     }
 
     protected override fun getInferrer(): AnnotationInferrer<MutabilityAnnotation, *> {
@@ -28,14 +28,14 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
 
     override fun Array<out kotlin.Annotation>.toAnnotation(): MutabilityAnnotation? {
         for (ann in this) {
-            if (ann.javaClass.simpleName == "ExpectMutable") return MutabilityAnnotation.MUTABLE
-            if (ann.javaClass.simpleName == "ExpectReadOnly") return MutabilityAnnotation.READ_ONLY
+            if (ann.annotationClass.java.simpleName == "ExpectMutable") return MutabilityAnnotation.MUTABLE
+            if (ann.annotationClass.java.simpleName == "ExpectReadOnly") return MutabilityAnnotation.READ_ONLY
         }
         return null
     }
 
     protected override fun getInitialAnnotations(): Annotations<MutabilityAnnotation> {
-        val utilClass = "out/test/kannotator/inferenceData/MutabilityInferenceTestLib.class"
+        val utilClass = "build/classes/java/test//inferenceData/MutabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayListOf(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) { annotationNames ->
             if ("org.jetbrains.kannotator.runtime.annotations.Mutable" in annotationNames)

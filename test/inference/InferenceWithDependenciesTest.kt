@@ -25,7 +25,7 @@ class InferenceWithDependenciesTest {
     @Test fun inferenceWithDependencies() {
         val inferrerMap = mapOf(NULLABILITY_KEY to (NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>))
 
-        val baseDir = File("out/test/kannotator")
+        val baseDir = File("build/classes/java/test")
         val inferenceResult = inferAnnotations(
                 FileBasedClassSource(listOf(File(baseDir, "/dependencies/a/A.class"))),
                 listOf<File>(),

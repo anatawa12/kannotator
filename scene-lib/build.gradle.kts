@@ -23,5 +23,5 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation("org.plumelib:plume-util:1.0.10")
-    implementation("org.jetbrains:annotations:18.0.0")
+    implementation("org.jetbrains:annotations-java5:18.0.0")
 }

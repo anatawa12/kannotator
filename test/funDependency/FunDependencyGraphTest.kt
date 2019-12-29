@@ -52,7 +52,7 @@ class FunDependencyGraphTest {
 
     @Test fun missingDependencies() {
         val classSource = ClassesFromClassPath("funDependency.simple.Simple")
-        val di = DeclarationIndexImpl(FileBasedClassSource(listOf(File("out/test/kannotator/funDependency/simple/Simple.class"))))
+        val di = DeclarationIndexImpl(FileBasedClassSource(listOf(File("build/classes/java/test/funDependency/simple/Simple.class"))))
         val missing = arrayListOf<ClassMember>()
         FunDependencyGraphBuilder(
             di,
